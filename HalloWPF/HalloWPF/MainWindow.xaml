@@ -105,4 +105,40 @@
 
         <Rectangle Grid.Column="2" Fill="Green" />
     </Grid>-->
+    <!--<Grid>
+        <Image Margin="50" Source="Schildkröte.jpg"
+               Stretch="UniformToFill"/>
+    </Grid>-->
+
+    <StackPanel Margin="50">
+        <Slider Maximum="100" 
+                Foreground="Black"
+                TickPlacement="Both"
+                IsSnapToTickEnabled="True">
+            <Slider.Ticks>
+                50
+                10
+                5
+            </Slider.Ticks>
+        </Slider>
+
+        <ProgressBar Margin="0 20 0 0" Height="20"
+                     IsIndeterminate="True" >
+            <ProgressBar.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Whatever" />
+                </ContextMenu>
+            </ProgressBar.ContextMenu>
+        </ProgressBar>
+
+        <Menu Margin="0 20 0 0">
+            <MenuItem Header="Datei">
+                <MenuItem Header="Speichern" />
+                <Separator />
+                <MenuItem Header="Speichern" />
+            </MenuItem>
+        </Menu>
+        
+    </StackPanel>
+
 </Window>
