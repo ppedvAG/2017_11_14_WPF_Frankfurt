@@ -8,6 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
         <converters:BoolToBrushConverter x:Key="bool2BrushConverter" />
+        <BooleanToVisibilityConverter x:Key="bool2VisibilityConverter" />
     </Window.Resources>
     
     <StackPanel Margin="50">
@@ -21,7 +22,8 @@
                    Fill="{Binding ElementName=checkbox, Path=IsChecked, Converter={StaticResource bool2BrushConverter}}" />
 
         <Rectangle Height="200" 
-                   Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}">
+                   Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}"
+                   Visibility="{Binding ElementName=checkbox, Path=IsChecked, Converter={StaticResource bool2VisibilityConverter}}">
             <Rectangle.Fill>
                 <Binding ElementName="checkbox" Path="IsChecked">
                     <Binding.Converter>
