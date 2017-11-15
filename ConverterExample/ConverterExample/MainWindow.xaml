@@ -3,10 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ConverterExample"
+        xmlns:converters="clr-namespace:ConverterExample.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+        <converters:BoolToBrushConverter x:Key="bool2BrushConverter" />
+    </Window.Resources>
+    
+    <StackPanel Margin="50">
+
+        <CheckBox Name="checkbox" 
+                  Content="Click Me" 
+                  HorizontalAlignment="Center" />
+
+        <Rectangle Height="200" 
+                   Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}"
+                   Fill="{Binding ElementName=checkbox, Path=IsChecked, Converter={StaticResource bool2BrushConverter}}" />
+
+        <Rectangle Height="200" 
+                   Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}">
+            <Rectangle.Fill>
+                <Binding ElementName="checkbox" Path="IsChecked">
+                    <Binding.Converter>
+                        <converters:BoolToBrushConverter />
+                    </Binding.Converter>
+                </Binding>
+            </Rectangle.Fill>
+        </Rectangle>
+
+    </StackPanel>
 </Window>
