@@ -7,7 +7,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="MyResources.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Resources.MyOwnResources;component/MyColors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/Resources.MyOwnResources;component/UIResources/MyColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <SolidColorBrush x:Key="aslödfjskladfj" Color="Blue" />
