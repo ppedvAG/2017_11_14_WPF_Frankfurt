@@ -10,8 +10,8 @@
 
         <ControlTemplate x:Key="myButtonTemplate" TargetType="Button">
             <Grid>
-                <!--<Ellipse Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />-->
                 <Ellipse Fill="{TemplateBinding Background}" />
+                <!--<Ellipse Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />-->
 
                 <ContentPresenter HorizontalAlignment="Center"
                                   VerticalAlignment="Center" />
