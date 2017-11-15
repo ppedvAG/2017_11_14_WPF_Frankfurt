@@ -21,7 +21,6 @@
             <Setter Property="Background" Value="#40F140" />
         </Style>
         
-        
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -78,6 +77,29 @@
             </Setter>
         </Style>
 
+        <DataTemplate DataType="{x:Type local:Person}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Id}" />
+                <TextBlock Text="{Binding Firstname}" Margin="8 0 0 0" />
+                <TextBlock Text="{Binding Lastname}" Margin="8 0 0 0" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Employee}">
+            <StackPanel Orientation="Horizontal" Background="#F7BB69">
+                <TextBlock Text="{Binding Id}" />
+                <TextBlock Text="{Binding Firstname}" Margin="8 0 0 0" />
+                <TextBlock Text="{Binding Lastname}" Margin="8 0 0 0" />
+                <TextBlock Text="{Binding Salary}" Margin="8 0 0 0" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type local:Customer}">
+            <StackPanel Orientation="Horizontal" Background="#92FA92">
+                <TextBlock Text="{Binding Id}" />
+                <TextBlock Text="{Binding Firstname}" Margin="8 0 0 0" />
+                <TextBlock Text="{Binding Lastname}" Margin="8 0 0 0" />
+                <TextBlock Text="{Binding CountOrders}" Margin="8 0 0 0" />
+            </StackPanel>
+        </DataTemplate>
     </Window.Resources>
 
     <StackPanel Margin="50">
@@ -86,5 +108,6 @@
         <Button Content="Click Me too" Background="Red" />
         <Button Content="Click Me" Style="{DynamicResource originalButtonTemplate}" />
 
+        <ItemsControl Name="presenter" Margin="0 20 0 0" />
     </StackPanel>
 </Window>

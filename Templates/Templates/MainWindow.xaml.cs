@@ -20,7 +20,34 @@ namespace Templates
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow() => InitializeComponent();
+        public MainWindow()
+        {
+            InitializeComponent();
+            var people = new List<Person>
+            {
+                new Person
+                    {
+                        Id = 3256,
+                        Firstname = "Stanislaus",
+                        Lastname = "Maier"
+                    },
+                new Customer
+                    {
+                        Id = 235,
+                        Firstname = "Lisa",
+                        Lastname = "Huber",
+                        CountOrders = 4
+                    },
+                new Employee
+                    {
+                        Id = 7654,
+                        Firstname = "Max",
+                        Lastname = "Mustermann",
+                        Salary = 23000
+                    }
+            };
+            presenter.ItemsSource = people;
+        }
 
         private void Button_Click(object sender, RoutedEventArgs e) => MessageBox.Show("Button was Clicked.");
     }
