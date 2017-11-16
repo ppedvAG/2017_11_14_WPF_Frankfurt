@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
         <ResourceDictionary>
-            <SolidColorBrush x:Key="defaultBackgroundColor" Color="#FFEFB7FA" />
+            <SolidColorBrush x:Key="defaultBackgroundColor" Color="Red" />
 
             <system:Double x:Key="myHeight">63.6</system:Double>
 

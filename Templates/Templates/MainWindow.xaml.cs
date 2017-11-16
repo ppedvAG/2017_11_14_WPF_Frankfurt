@@ -26,25 +26,25 @@ namespace Templates
             var people = new List<Person>
             {
                 new Person
-                    {
-                        Id = 3256,
-                        Firstname = "Stanislaus",
-                        Lastname = "Maier"
-                    },
+                {
+                    Id = 3256,
+                    Firstname = "Stanislaus",
+                    Lastname = "Maier"
+                },
                 new Customer
-                    {
-                        Id = 235,
-                        Firstname = "Lisa",
-                        Lastname = "Huber",
-                        CountOrders = 4
-                    },
+                {
+                    Id = 235,
+                    Firstname = "Lisa",
+                    Lastname = "Huber",
+                    CountOrders = 4
+                },
                 new Employee
-                    {
-                        Id = 7654,
-                        Firstname = "Max",
-                        Lastname = "Mustermann",
-                        Salary = 23000
-                    }
+                {
+                    Id = 7654,
+                    Firstname = "Max",
+                    Lastname = "Mustermann",
+                    Salary = 23000
+                }
             };
             presenter.ItemsSource = people;
         }
