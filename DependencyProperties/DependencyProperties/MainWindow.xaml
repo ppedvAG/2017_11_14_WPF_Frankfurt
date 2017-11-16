@@ -1,12 +1,25 @@
 ﻿<Window x:Class="DependencyProperties.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DependencyProperties"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <StackPanel Margin="50">
+
+        <Slider Name="fontSizeSlider" Maximum="200" />
+
+        <local:SimpleLabel Margin="0 20 0 0"
+                           Text="{Binding ElementName=someText, Path=Text}"
+                           FontSize="{Binding ElementName=fontSizeSlider, Path=Value}"
+                           Background="LightGreen">
+            <local:SimpleLabel.Foreground>
+                <ImageBrush ImageSource="Schildkröte.jpg" />
+            </local:SimpleLabel.Foreground>
+        </local:SimpleLabel>
+
+        <TextBox Name="someText" Margin="0 20 0 0" />
+
+    </StackPanel>
 </Window>
