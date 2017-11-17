@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Input;
 
 namespace HalloMVVM.ViewModels
@@ -8,16 +9,22 @@ namespace HalloMVVM.ViewModels
         private readonly Action execute;
         private readonly Func<bool> canExecute;
 
-        public event EventHandler CanExecuteChanged
-        {
-            add => CommandManager.RequerySuggested += value;
-            remove => CommandManager.RequerySuggested -= value;
-        }
+        public event EventHandler CanExecuteChanged;
 
         public Command(Action execute) => this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
         public Command(Action execute, Func<bool> canExecute) : this(execute) => this.canExecute = canExecute;
 
         public bool CanExecute(object parameter) => canExecute?.Invoke() ?? true;
         public void Execute(object parameter) => execute();
+
+        public Command ObservesProperty(INotifyPropertyChanged vm, string propertyName)
+        {
+            vm.PropertyChanged += (s, args) =>
+            {
+                if (args.PropertyName == propertyName)
+                    CanExecuteChanged?.Invoke(this, new EventArgs());
+            };
+            return this;
+        }
     }
 }

@@ -15,7 +15,8 @@
         {
             ChangeTextCommand = new Command(
                 () => WelcomeText = "Mein neuer Text aus dem ViewModel.",
-                () => WelcomeText.Length < 10);
+                () => WelcomeText.Length < 10)
+                .ObservesProperty(this, nameof(WelcomeText));
         }
     }
 }
