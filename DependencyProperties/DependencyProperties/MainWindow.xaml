@@ -6,11 +6,19 @@
         xmlns:local="clr-namespace:DependencyProperties"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <StackPanel Margin="50">
+    <Grid Margin="50">
 
-        <Slider Name="fontSizeSlider" Maximum="200" />
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-        <local:SimpleLabel Margin="0 20 0 0"
+        <Slider Grid.Row="0" Name="fontSizeSlider" Maximum="200" />
+
+        <local:SimpleLabel Margin="0 20 0 0" x:Name="myLabel"
+                           Grid.Row="1"
                            Text="{Binding ElementName=someText, Path=Text}"
                            FontSize="{Binding ElementName=fontSizeSlider, Path=Value}"
                            Background="LightGreen">
@@ -19,7 +27,9 @@
             </local:SimpleLabel.Foreground>
         </local:SimpleLabel>
 
-        <TextBox Name="someText" Margin="0 20 0 0" />
+        <TextBox Grid.Row="2" Text="{Binding ElementName=myLabel, Path=FontSize, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" />
 
-    </StackPanel>
+        <TextBox Name="someText" Margin="0 20 0 0" Grid.Row="3" />
+
+    </Grid>
 </Window>
