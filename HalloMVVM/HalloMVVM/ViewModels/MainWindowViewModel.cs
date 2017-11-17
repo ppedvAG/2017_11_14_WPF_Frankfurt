@@ -8,5 +8,14 @@
             get => welcomeText;
             set => Set(ref welcomeText, value);
         }
+
+        public Command ChangeTextCommand { get; }
+
+        public MainWindowViewModel()
+        {
+            ChangeTextCommand = new Command(
+                () => WelcomeText = "Mein neuer Text aus dem ViewModel.",
+                () => WelcomeText.Length < 10);
+        }
     }
 }
