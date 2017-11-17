@@ -1,0 +1,50 @@
+﻿<Window x:Class="RoutedEventsExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RoutedEventsExample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="525">
+
+    <Grid Name="TheGrid"
+          PreviewMouseDown="PreviewMouseDown"
+          MouseDown="MouseDown">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Name="GreenBorder"
+                BorderBrush="Green" BorderThickness="20"
+                Margin="50"
+                PreviewMouseDown="PreviewMouseDown"
+                MouseDown="MouseDown">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <Rectangle Name="RedRectangle"
+                           Margin="50"
+                           Fill="Red"
+                           Height="100" Width="100"
+                           PreviewMouseDown="PreviewMouseDown"
+                           MouseDown="MouseDown"
+                           MouseUp="MouseUp"
+                           PreviewMouseUp="PreviewMouseUp"/>
+
+                <Rectangle Name="BlueRectangle"
+                           Margin="50"
+                           Fill="Blue"
+                           Height="100" Width="100"
+                           PreviewMouseDown="PreviewMouseDown"
+                           MouseDown="MouseDown"
+                           MouseUp="MouseUp"
+                           PreviewMouseUp="PreviewMouseUp"/>
+            </StackPanel>
+        </Border>
+
+        <DataGrid Grid.Row="1" Name="EventsDataGrid" />
+
+    </Grid>
+</Window>
